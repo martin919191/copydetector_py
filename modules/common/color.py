@@ -16,16 +16,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# from modules.models.config_manager import ConfigManager as CoMa
-# from modules.models.copy_detector import CopyDetectorManager
+import enum
 
-from modules import (
-    CopyDetectorManager, CoMa
-)
-
-
-if __name__ == '__main__':
-    FILE_CONFIG_NAME: str = './modules/configs.json'
-    config_manager = CoMa(FILE_CONFIG_NAME)
-    c_manager = CopyDetectorManager(config_manager)
-    c_manager.start_checking_copies()
+class Color(enum.Enum):
+    """Enumeration"""
+    _B_RED: str = '\033[41m'
+    _B_GREEN: str = '\033[42m'
+    _B_BLUE: str = '\033[44m'
+    _B_WHITE: str = '\033[47m'
+    _F_RED: str = '\033[1;31m'
+    _F_BLACK: str = '\033[30m'
+    _F_WHITE: str = '\033[37m'
+    _NO_COLOR: str = '\033[0m'

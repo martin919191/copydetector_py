@@ -16,16 +16,34 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# from modules.models.config_manager import ConfigManager as CoMa
-# from modules.models.copy_detector import CopyDetectorManager
+class File:
+    """Represents a file to check in a group of files"""
 
-from modules import (
-    CopyDetectorManager, CoMa
-)
+    def __init__(self, path: str, size: int | float, name: str) -> None:
+        self.__path = path
+        self.__size = size
+        self.__name = name
 
+    @property
+    def size(self) -> int | float:
+        """
+        It returns the size of the list.
+        :return: The size of the list.
+        """
+        return self.__size
 
-if __name__ == '__main__':
-    FILE_CONFIG_NAME: str = './modules/configs.json'
-    config_manager = CoMa(FILE_CONFIG_NAME)
-    c_manager = CopyDetectorManager(config_manager)
-    c_manager.start_checking_copies()
+    @property
+    def path(self) -> str:
+        """
+        It returns the path of the file.
+        :return: The path of the file.
+        """
+        return self.__path
+
+    @property
+    def name(self) -> str:
+        """
+        It returns the name of the object.
+        :return: The name of the person
+        """
+        return self.__name
